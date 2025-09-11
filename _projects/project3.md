@@ -51,4 +51,5 @@ A systematic comparison against traditional approaches highlights the advantage 
 ## Links
 
 - **Reconstruction of Continuous Cosmological Fields from Discrete Tracers with Graph Neural Networks (NeurIPS ML+Physical Sciences, Nov 2024)** — arXiv: [2411.02496](https://arxiv.org/abs/2411.02496)  
-- **Reconstruction of Dark Matter and Baryon Density From Galaxies: A Comparison of Linear, Halo Model and Machine Learning‑Based Methods (JCAP submission, July 2025)** — arXiv: [2507.12530](https://arxiv.org/abs/2507.12530)  
+- **Reconstruction of Dark Matter and Baryon Density From Galaxies: A Comparison of Linear, Halo Model and Machine Learning‑Based Methods (JCAP submission, July 2025)** — arXiv: [2507.12530](https://arxiv.org/abs/2507.12530)
+- **[Code](https://github.com/ykvasiuk/g2fnet)**  
