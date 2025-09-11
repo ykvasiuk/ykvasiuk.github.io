@@ -14,3 +14,40 @@ author_profile: true
 {% for post in site.talks reversed %}
   {% include archive-single-talk.html %}
 {% endfor %}
+
+<style>
+/* Completely disable all hover effects on talks */
+.archive__item,
+.archive__item *,
+.archive__item:hover,
+.archive__item *:hover {
+  cursor: default !important;
+  color: inherit !important;
+  text-decoration: none !important;
+  background-color: inherit !important;
+  background: inherit !important;
+  border-color: inherit !important;
+  box-shadow: none !important;
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+/* Specifically target any remaining hover states */
+.archive__item:hover * {
+  color: inherit !important;
+  text-decoration: none !important;
+  background-color: inherit !important;
+}
+
+/* Override any theme-specific hover effects */
+.archive__item:hover .archive__item-title,
+.archive__item:hover .archive__item-excerpt,
+.archive__item:hover .page__meta,
+.archive__item:hover p,
+.archive__item:hover span,
+.archive__item:hover div {
+  color: inherit !important;
+  text-decoration: none !important;
+  background-color: inherit !important;
+}
+</style>

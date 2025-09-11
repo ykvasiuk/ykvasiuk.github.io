@@ -36,6 +36,36 @@ layout: default
         
         {% if page.collection == 'teaching' %}
           <p> {{ page.type }}, <i>{{ page.venue }}</i>, {{ page.date | default: "1900-01-01" | date: "%Y" }} </p>
+        {% elsif page.collection == 'publications' %}
+          <p><i>{{ page.venue }}</i></p>
+          
+          {% comment %} Display abstract for individual publication pages {% endcomment %}
+          {% if page.abstract %}
+            <div class="publication-abstract-individual">
+              <h3>Abstract</h3>
+              <p>{{ page.abstract | markdownify }}</p>
+            </div>
+          {% endif %}
+          
+          {% comment %} Display links for individual publication pages {% endcomment %}
+          {% if page.links %}
+            <div class="publication-links-individual">
+              <div class="links-container">
+                {% for link in page.links %}
+                  <a href="{{ link.url }}">{{ link.label }}</a>
+                {% endfor %}
+              </div>
+            </div>
+          {% comment %} Fallback to old structure for backward compatibility {% endcomment %}
+          {% elsif page.paperurl or page.slidesurl or page.bibtexurl %}
+            <div class="publication-links-individual">
+              <div class="links-container">
+                {% if page.paperurl %}<a href="{{ page.paperurl }}">Download Paper</a>{% endif %}
+                {% if page.slidesurl %}<a href="{{ page.slidesurl }}">Download Slides</a>{% endif %}
+                {% if page.bibtexurl %}<a href="{{ page.bibtexurl }}">Download Bibtex</a>{% endif %}
+              </div>
+            </div>
+          {% endif %}
         {% elsif page.venue and page.date %}
           <p>Published in <i>{{ page.venue }}</i>, {{ page.date | default: "1900-01-01" | date: "%Y" }} </p>
         {% elsif page.date %}
@@ -45,35 +75,16 @@ layout: default
       {% endunless %}
 
       <section class="page__content" itemprop="text">
-        {{ content }}
-
-        {% if page.citation and page.paperurl and page.slidesurl and page.bibtexurl %}
-          <p style="font-size: smaller">Recommended citation: {{ page.citation }}<br /><a href="{{ page.paperurl }}">Download Paper</a> | <a href="{{ page.slidesurl }}">Download Slides</a> | <a href="{{ page.bibtexurl }}">Download Bibtex</a></p>
-        {% elsif page.citation and page.paperurl and page.slidesurl %}
-          <p style="font-size: smaller">Recommended citation: {{ page.citation }}<br /><a href="{{ page.paperurl }}">Download Paper</a> | <a href="{{ page.slidesurl }}">Download Slides</a></p>
-        {% elsif page.citation and page.paperurl and page.bibtexurl %}
-          <p style="font-size: smaller">Recommended citation: {{ page.citation }}<br /><a href="{{ page.paperurl }}">Download Paper</a> | <a href="{{ page.bibtexurl }}">Download Bibtex</a></p>
-        {% elsif page.citation and page.paperurl %}
-          <p style="font-size: smaller">Recommended citation: {{ page.citation }}<br /><a href="{{ page.paperurl }}">Download Paper</a></p>
-        {% elsif page.citation and page.slidesurl and page.bibtexurl %}
-          <p style="font-size: smaller">Recommended citation: {{ page.citation }}<br /><a href="{{ page.slidesurl }}">Download Slides</a> | <a href="{{ page.bibtexurl }}">Download Bibtex</a></p>
-        {% elsif page.citation and page.slidesurl %}
-          <p style="font-size: smaller">Recommended citation: {{ page.citation }}<br /><a href="{{ page.slidesurl }}">Download Slides</a></p>
-        {% elsif page.slidesurl and page.bibtexurl %}
-          <p style="font-size: smaller"><a href="{{ page.slidesurl }}">Download Slides</a> | <a href="{{ page.bibtexurl }}">Download Bibtex</a></p>
-        {% elsif page.paperurl and page.bibtexurl %}
-          <p style="font-size: smaller"><a href="{{ page.paperurl }}">Download Paper</a> | <a href="{{ page.bibtexurl }}">Download Bibtex</a></p>
-        {% elsif page.citation and page.bibtexurl %}
-          <p style="font-size: smaller">Recommended citation: {{ page.citation }}<br /><a href="{{ page.bibtexurl }}">Download Bibtex</a></p>
-        {% elsif page.citation %}
-          <p style="font-size: smaller">Recommended citation: {{ page.citation }}</p>
-        {% elsif page.slidesurl %}
-          <p style="font-size: smaller"><a href="{{ page.slidesurl }}">Download Slides</a></p>
-        {% elsif page.bibtexurl %}
-          <p style="font-size: smaller"><a href="{{ page.bibtexurl }}">Download Bibtex</a></p>
+        {% if page.toc %}
+          <aside class="sidebar__right {% if page.toc_sticky %}sticky{% endif %}">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fa fa-{{ page.toc_icon | default: 'file-text' }}"></i> {{ page.toc_label | default: site.data.ui-text[site.locale].toc_label | default: "On this page" }}</h4></header>
+              {% include toc.html sanitize=true html=content h_min=1 h_max=6 class="toc__menu" skip_no_ids=true %}
+            </nav>
+          </aside>
         {% endif %}
-
-        {% if page.link %}<div><a href="{{ page.link }}" class="btn">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
+        {{ content }}
+        {% if page.link %}<div><a href="{{ page.link }}" class="btn btn--primary">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
       </section>
 
       <footer class="page__meta">
@@ -81,29 +92,187 @@ layout: default
           <h4 class="page__meta-title">{{ site.data.ui-text[site.locale].meta_label }}</h4>
         {% endif %}
         {% include page__taxonomy.html %}
+        {% if page.last_modified_at %}
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Updated:" }}</strong> <time datetime="{{ page.last_modified_at | date: "%Y-%m-%d" }}">{{ page.last_modified_at | date: "%B %d, %Y" }}</time></p>
+        {% elsif page.date %}
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></p>
+        {% endif %}
+        {% if page.share %}{% include social-share.html %}{% endif %}
       </footer>
 
-      {% if page.share %}{% include social-share.html %}{% endif %}
-
-      {% include post_pagination.html %}
+      {% if site.disqus.shortname %}
+        {% unless page.comments == false %}
+          <section id="disqus_thread"></section><!-- /#disqus_thread -->
+        {% endunless %}
+      {% endif %}
     </div>
 
-    {% if site.comments.provider and page.comments %}
+    {% if jekyll.environment == 'production' and site.comments.provider and page.comments %}
       {% include comments.html %}
     {% endif %}
   </article>
 
-  {% comment %}<!-- only show related on a post page when not disabled -->{% endcomment %}
+  {% comment %}<!-- only show related on a post page when `related: true` -->{% endcomment %}
   {% if page.id and page.related and site.related_posts.size > 0 %}
     <div class="page__related">
-      {% if site.data.ui-text[site.locale].related_label %}
-        <h4 class="page__related-title">{{ site.data.ui-text[site.locale].related_label | default: "You May Also Enjoy" }}</h4>
-      {% endif %}
+      <h4 class="page__related-title">{{ site.data.ui-text[site.locale].related_label | default: "You May Also Enjoy" }}</h4>
       <div class="grid__wrapper">
         {% for post in site.related_posts limit:4 %}
           {% include archive-single.html type="grid" %}
         {% endfor %}
       </div>
     </div>
+  {% comment %}<!-- otherwise show recent posts if no related when `related: false` -->{% endcomment %}
+  {% elsif page.id and page.related %}
+    <div class="page__related">
+      <h4 class="page__related-title">{{ site.data.ui-text[site.locale].related_label | default: "You May Also Enjoy" }}</h4>
+      <div class="grid__wrapper">
+        {% for post in site.posts limit:4 %}
+          {% if post.id == page.id %}
+            {% continue %}
+          {% endif %}
+          {% include archive-single.html type="grid" %}
+        {% endfor %}
+      </div>
+    </div>
   {% endif %}
 </div>
+
+{% if page.collection == 'projects' %}
+<style>
+/* Projects-specific styling */
+#main {
+  max-width: 1400px !important;
+}
+
+.page__inner-wrap {
+  max-width: none !important;
+}
+
+.page__content {
+  max-width: none !important;
+}
+
+/* Add top margin to the entire header section for projects */
+.page .page__inner-wrap header {
+  margin-top: 50px !important;
+  padding-top: 20px !important;
+}
+
+.page__title {
+  font-size: 1.8em !important;
+  margin-bottom: 20px !important;
+}
+
+/* Make media elements wider and more responsive */
+.page__content img {
+  max-width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  margin: 20px auto !important;
+}
+
+.page__content figure {
+  max-width: 100% !important;
+  margin: 20px auto !important;
+}
+
+.page__content figure img {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+.page__content .highlight {
+  max-width: 100% !important;
+  overflow-x: auto !important;
+}
+
+.page__content pre {
+  max-width: 100% !important;
+  overflow-x: auto !important;
+}
+
+/* Responsive adjustments for wider layout */
+@media (max-width: 1600px) {
+  #main {
+    max-width: 1300px !important;
+  }
+}
+
+@media (max-width: 1400px) {
+  #main {
+    max-width: 1200px !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  #main {
+    max-width: 1100px !important;
+  }
+}
+
+@media (max-width: 1000px) {
+  #main {
+    max-width: 1000px !important;
+  }
+}
+
+@media (max-width: 800px) {
+  #main {
+    max-width: 900px !important;
+  }
+  
+  .page .page__inner-wrap header {
+    margin-top: 30px !important;
+    padding-top: 15px !important;
+  }
+}
+</style>
+{% endif %}
+
+{% if page.collection == 'publications' %}
+<style>
+/* Publications-specific styling for individual pages */
+.publication-links-individual {
+  margin: 20px 0;
+}
+
+.links-container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.publication-links-individual a {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white !important;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.publication-links-individual a:hover {
+  background-color: #0056b3;
+  color: white !important;
+  text-decoration: none;
+}
+
+.publication-abstract-individual {
+  margin: 20px 0;
+}
+
+.publication-abstract-individual h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: var(--text-color);
+}
+
+.publication-abstract-individual p {
+  line-height: 1.6;
+  color: var(--text-color);
+}
+</style>
+{% endif %}

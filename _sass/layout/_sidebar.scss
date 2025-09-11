@@ -46,12 +46,12 @@
   }
 
   h3, h4 {
-    font-size: $type-size-5;
+    font-size: calc(#{$type-size-5} * 0.9);
   }
 
   p, li {
     font-family: $sans-serif;
-    font-size: $type-size-6;
+    font-size: calc(#{$type-size-6} * 0.9);
     line-height: 1.5;
   }
 
@@ -94,7 +94,7 @@
   }
 
   img {
-    max-width: 175px;
+    max-width: 220px;
     border-radius: 50%;
 
     @include breakpoint($large) {
@@ -129,7 +129,7 @@
 }
 .sidebar .author__name {
   font-family: $sans-serif;
-  font-size: $type-size-5;
+  font-size: calc(#{$type-size-5} * 1.1);
 }
 
 .sidebar .author__desktop {
@@ -150,6 +150,7 @@
 
 .author__bio {
   margin: 0;
+  font-size: calc(#{$type-size-6} * 1.2) !important;
 
   @include breakpoint($large) {
     margin-top: 10px;
@@ -245,6 +246,7 @@
 
   li {
     white-space: nowrap;
+    font-size: calc(#{$type-size-5} * 0.9);
   }
 
   a {
@@ -254,7 +256,7 @@
     padding-top: 2px;
     padding-bottom: 2px;
     color: inherit;
-    font-size: $type-size-5;
+    font-size: calc(#{$type-size-5} * 0.9);
     text-decoration: none;
 
     &:hover {
