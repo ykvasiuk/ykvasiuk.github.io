@@ -1,0 +1,29 @@
+---
+layout: default
+math: true
+---
+{% assign area = site.data.areas | where: "id", page.area | first %}
+<article class="wrap page project">
+  <header class="page-head">
+    <p class="eyebrow"><a href="{{ '/projects/' | relative_url }}">Research</a>{% if area %} <span aria-hidden="true">/</span> <span class="dot g-{{ area.group }}"></span>{{ area.label }}{% endif %}</p>
+    <h1>{{ page.title }}</h1>
+    {% if page.excerpt %}<p class="lead">{{ page.excerpt | strip_html }}</p>{% endif %}
+    {% assign papers = site.data.publications | where: "project", page.url %}
+    {% if papers.size > 0 %}
+    <ul class="paper-links">
+      {% for p in papers %}
+      <li>{% include pub-links.html p=p label=true %}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </header>
+  {% if page.image %}
+  <figure class="figure">
+    <img src="{{ '/images/' | append: page.image | relative_url }}" alt="Figure for {{ page.title | escape }}" loading="lazy">
+  </figure>
+  {% endif %}
+  <div class="prose">
+    {{ content }}
+  </div>
+  <p class="back"><a href="{{ '/projects/' | relative_url }}">← All research</a></p>
+</article>

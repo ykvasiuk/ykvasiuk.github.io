@@ -1,6 +1,9 @@
 ---
 title: "Two-field formalism for a neural network-enhanced non-Gaussianity search with halos"
 collection: projects
+area: cosmology
+order: 5
+short_title: "Neural-network search for primordial non-Gaussianity"
 image: "untltd.png"
 excerpt: 'We introduce a new, neural-net-enhanced method for measuring the local non-Gaussianity \(f_{NL}\) from the dark matter halos with the estimator that reconstructs the local value of \(\sigma_8\) and the large-scale linear dark matter field'
 ---

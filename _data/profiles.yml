@@ -1,0 +1,10 @@
+# Profiles shown on the home page and in the footer.
+- name: Google Scholar
+  short: Scholar
+  url: https://scholar.google.com/citations?user=8U1fO3oAAAAJ&hl=en
+- name: INSPIRE-HEP
+  short: INSPIRE
+  url: https://inspirehep.net/authors/2511706
+- name: LinkedIn
+  short: LinkedIn
+  url: https://www.linkedin.com/in/yuriikvasiuk

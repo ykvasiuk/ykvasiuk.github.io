@@ -1,0 +1,87 @@
+# Concept map shown on the home page.
+#   groups — the four themes (each is a hub node, with a colour in main.css)
+#   nodes  — concepts; `papers` lists keys from _data/publications.yml
+#   links  — extra edges between concepts (every node is already tied to its hub)
+
+groups:
+  - id: universe
+    label: The Universe
+    blurb: Modelling and measuring the cosmos with the CMB and large-scale structure.
+    links: [inference, ai]
+  - id: inference
+    label: Inference
+    blurb: Theory, computation and statistics that turn sky maps into physics.
+    links: [universe, ai]
+  - id: ai
+    label: AI for Science
+    blurb: Measuring and improving how well language models reason about physics.
+    links: [inference, auto]
+  - id: auto
+    label: Autoresearch
+    blurb: LLM-driven loops that write, test and improve algorithms on their own.
+    links: [ai, inference]
+
+nodes:
+  # — The Universe
+  - { id: cmb,      group: universe, label: "CMB",                         papers: [autodiff-ksz, ksz-act-desi, thesis] }
+  - { id: lss,      group: universe, label: "Large-scale structure",       papers: [ksz-act-desi, dm-recon, wide-angle, thesis] }
+  - { id: ksz,      group: universe, label: "kSZ effect",                  papers: [autodiff-ksz, ksz-act-desi, qml-fast] }
+  - { id: velocity, group: universe, label: "Velocity reconstruction",     papers: [autodiff-ksz, ksz-act-desi, wide-angle] }
+  - { id: png,      group: universe, label: "Primordial non-Gaussianity",  papers: [two-field, qml-fast] }
+  - { id: baryons,  group: universe, label: "Dark matter & baryons",       papers: [gnn, dm-recon] }
+
+  # — Inference
+  - { id: estimators, group: inference, label: "Optimal estimators",   papers: [qml-fast, ksz-act-desi, wide-angle, two-field] }
+  - { id: powerspec,  group: inference, label: "Power spectra",        papers: [qml-fast, wide-angle, ksz-act-desi] }
+  - { id: likelihood, group: inference, label: "Field-level likelihoods", papers: [autodiff-ksz] }
+  - { id: autodiff,   group: inference, label: "Differentiable programming", papers: [autodiff-ksz] }
+  - { id: sims,       group: inference, label: "Simulations",          papers: [gnn, dm-recon, two-field] }
+  - { id: gnn,        group: inference, label: "Graph neural networks", papers: [gnn, dm-recon] }
+  - { id: neural,     group: inference, label: "Neural estimators",    papers: [two-field, cnn-eos] }
+
+  # — AI for Science
+  - { id: bench,    group: ai, label: "Benchmarks",            papers: [tpbench, tts] }
+  - { id: reason,   group: ai, label: "LLM reasoning",         papers: [tpbench, tts, qft-finetune] }
+  - { id: tts,      group: ai, label: "Test-time scaling",     papers: [tts] }
+  - { id: verify,   group: ai, label: "Symbolic verification", papers: [tts, qft-finetune] }
+  - { id: finetune, group: ai, label: "Fine-tuning (SFT)",     papers: [qft-finetune] }
+  - { id: rl,       group: ai, label: "Reinforcement learning", papers: [qft-finetune] }
+  - { id: small,    group: ai, label: "Small models",          papers: [qft-finetune] }
+  - { id: qft,      group: ai, label: "Quantum field theory",  papers: [qft-finetune, tpbench] }
+
+  # — Autoresearch
+  - { id: evolve,  group: auto, label: "Evolutionary search",  papers: [madevolve] }
+  - { id: agents,  group: auto, label: "Agentic loops",        papers: [madevolve] }
+  - { id: algo,    group: auto, label: "Algorithm discovery",  papers: [madevolve] }
+  - { id: quant,   group: auto, label: "Market making & alpha", papers: [madevolve] }
+  - { id: phack,   group: auto, label: "Guarding against p-hacking", papers: [madevolve] }
+
+links:
+  - [cmb, ksz]
+  - [lss, ksz]
+  - [ksz, velocity]
+  - [velocity, png]
+  - [velocity, estimators]
+  - [png, neural]
+  - [png, estimators]
+  - [baryons, gnn]
+  - [baryons, ksz]
+  - [estimators, powerspec]
+  - [likelihood, autodiff]
+  - [likelihood, ksz]
+  - [sims, gnn]
+  - [sims, neural]
+  - [bench, reason]
+  - [bench, tts]
+  - [tts, verify]
+  - [finetune, rl]
+  - [finetune, small]
+  - [rl, verify]
+  - [qft, finetune]
+  - [qft, bench]
+  - [evolve, agents]
+  - [evolve, algo]
+  - [algo, quant]
+  - [quant, phack]
+  - [agents, reason]
+  - [algo, sims]

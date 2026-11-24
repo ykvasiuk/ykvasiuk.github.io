@@ -1,6 +1,9 @@
 ---
 title: "TP Bench – Theoretical Physics Benchmark for AI"
 collection: projects
+area: ai
+order: 1
+short_title: "TPBench: a theoretical physics benchmark for AI"
 image: "squarelogo.png"
 excerpt: 'A curated dataset and evaluation suite designed to measure the reasoning capabilities of AI models in theoretical physics'
 ---

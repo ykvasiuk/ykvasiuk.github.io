@@ -1,6 +1,9 @@
 ---
 title: "QML-FAST - A Fast Code for Low-ℓ Tomographic Maximum Likelihood Power Spectrum Estimation"
 collection: projects
+area: cosmology
+order: 2
+short_title: "QML-FAST: optimal low-ℓ power spectra"
 image: "qml.png"
 excerpt: "We present a novel implementation for the quadratic maximum likelihood (QML) power spectrum estimator for multiple correlated scalar fields on the sphere with computational optimizations making it tractable for low-ℓ analysis."
 ---
@@ -64,7 +67,7 @@ Our QML-FAST implementation successfully demonstrates:
 - **Flexibility**: Supporting arbitrary field correlations and binning schemes
 - **Validation**: Extensive testing confirms theoretical predictions and unbiasedness
 
-The [companion paper](/projects/ksz-desils/) applies this estimator to kSZ velocity reconstruction using ACT and DESI Legacy Survey data, constructing full QML estimators for 40 correlated fields and demonstrating the practical utility of the approach.
+The [companion paper](/projects/ksz_desi-ls/) applies this estimator to kSZ velocity reconstruction using ACT and DESI Legacy Survey data, constructing full QML estimators for 40 correlated fields and demonstrating the practical utility of the approach.
 
 
 ## Links

@@ -1,0 +1,30 @@
+---
+title: Research
+permalink: /projects/
+eyebrow: Research
+math: true
+lead: >-
+  Three threads run through my work: measuring the Universe, teaching machines to reason about physics,
+  and letting them run the research loop themselves.
+---
+{% for a in site.data.areas %}
+<section class="area-block" id="{{ a.id }}">
+  <header>
+    <h2><span class="dot g-{{ a.group }}"></span>{{ a.label }}</h2>
+    <p>{{ a.blurb }}</p>
+  </header>
+  <ul class="project-list">
+    {% assign items = site.projects | where: "area", a.id | sort: "order" %}
+    {% for post in items %}
+    {% assign base = post.path | split: "/" | last | remove: ".md" %}
+    {% assign ppath = "/projects/" | append: base | append: "/" %}
+    {% assign papers = site.data.publications | where: "project", ppath %}
+    <li>
+      <h3>{% if papers[0].arxiv %}<a href="https://arxiv.org/abs/{{ papers[0].arxiv }}">{{ post.short_title | default: post.title }}</a>{% else %}{{ post.short_title | default: post.title }}{% endif %}</h3>
+      <p>{{ post.excerpt | strip_html | truncate: 230 }}</p>
+      {% for p in papers %}<p class="pub-meta">{% include pub-links.html p=p label=true %}</p>{% endfor %}
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endfor %}

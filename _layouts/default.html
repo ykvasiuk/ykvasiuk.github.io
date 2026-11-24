@@ -1,31 +1,66 @@
----
-layout: compress
----
-
-{% include base_path %}
-
 <!doctype html>
-<html lang="{{ site.locale | slice: 0,2 }}" class="no-js"{% if site.site_theme == "dark" %} data-theme="dark"{% endif %}>
-  <head>
-    {% include head.html %}
-    {% include head/custom.html %}
-  </head>
-
-  <body>
-
-    {% include browser-upgrade.html %}
-    {% include masthead.html %}
-
-    {{ content }}
-
-    <div class="page__footer">
-      <footer>
-        {% include footer/custom.html %}
-        {% include footer.html %}
-      </footer>
+<html lang="{{ site.lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    // Apply the saved theme before first paint.
+    try { var t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+  {% seo %}
+  <link rel="icon" href="{{ '/images/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="icon" href="{{ '/images/favicon-32x32.png' | relative_url }}" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="{{ '/images/apple-touch-icon-180x180.png' | relative_url }}">
+  <link rel="manifest" href="{{ '/images/manifest.json' | relative_url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="{{ '/' | relative_url }}" aria-label="Home">
+        <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 17 L9 7 L15 13 L20 5" fill="none" stroke="currentColor" stroke-width="1" opacity=".45"/>
+          <circle cx="4" cy="17" r="1.6"/><circle cx="9" cy="7" r="2.2"/><circle cx="15" cy="13" r="1.6"/><circle cx="20" cy="5" r="1.9"/>
+        </svg>
+        <span>Yurii Kvasiuk</span>
+      </a>
+      <nav aria-label="Main">
+        {% assign nav = "Research|/projects/,Publications|/publications/,Talks|/talks/" | split: "," %}
+        {% for item in nav %}
+          {% assign parts = item | split: "|" %}
+          <a href="{{ parts[1] | relative_url }}" {% if page.url contains parts[1] %}aria-current="page"{% endif %}>{{ parts[0] }}</a>
+        {% endfor %}
+        <button class="theme-toggle" type="button" aria-label="Switch colour theme" title="Switch colour theme">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 4a8 8 0 0 1 0 16z"/></svg>
+        </button>
+      </nav>
     </div>
+  </header>
 
-    {% include scripts.html %}
+  <main id="main">
+    {{ content }}
+  </main>
 
-  </body>
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>© {{ site.time | date: "%Y" }} Yurii Kvasiuk · Perimeter Institute, Waterloo</span>
+      <span class="footer-links">
+        {% for p in site.data.profiles %}<a href="{{ p.url }}" rel="me noopener">{{ p.short }}</a>{% endfor %}
+      </span>
+    </div>
+  </footer>
+
+  <script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
+  {% if page.math or layout.math %}
+  <script>
+    window.MathJax = { tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["$$", "$$"], ["\\[", "\\]"]] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  {% endif %}
+  {% if page.scripts %}{% for s in page.scripts %}<script src="{{ s | relative_url }}" defer></script>{% endfor %}{% endif %}
+</body>
 </html>

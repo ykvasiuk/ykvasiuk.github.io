@@ -1,0 +1,152 @@
+# One entry per paper, newest first. To add a paper, copy an entry and edit it.
+#   key    — short id, referenced from _data/graph.yml and project pages
+#   area   — cosmology | ai | autoresearch | early | collaboration
+#   arxiv  — arXiv id
+#   doi    — journal DOI, if published
+
+- key: wide-angle
+  title: "Optimal and exact wide-angle power spectrum estimation"
+  authors: "N. Sailer, K. Smith, Y. Kvasiuk, A. Laguë, S. Hotinli"
+  year: 2026
+  venue: "Preprint"
+  area: cosmology
+  arxiv: "2607.05513"
+  project: /projects/wide_angle/
+
+- key: madevolve
+  title: "MadEvolve: Evolutionary Optimization of Trading Systems with Large Language Models"
+  authors: "Y. Kvasiuk, T. Li, O. Colegrove, M. Münchmeyer"
+  year: 2026
+  venue: "Preprint"
+  area: autoresearch
+  arxiv: "2605.23007"
+  project: /projects/madevolve/
+
+- key: qft-finetune
+  title: "Fine-tuning small reasoning models for quantum field theory"
+  authors: "N. S. Woodward, Z. Gao, Y. Kvasiuk, K. M. Smith, F. Sala, M. Münchmeyer"
+  year: 2026
+  venue: "Mach. Learn.: Sci. Technol. 7, 055029"
+  area: ai
+  arxiv: "2604.18936"
+  doi: "10.1088/2632-2153/aea39e"
+  project: /projects/qft_finetuning/
+
+- key: thesis
+  title: "Precision Cosmology from Cross-Correlation of the Cosmic Microwave Background and Large Scale Structure"
+  authors: "Y. Kvasiuk"
+  year: 2026
+  venue: "Ph.D. thesis, University of Wisconsin–Madison"
+  area: cosmology
+
+- key: qml-fast
+  title: "QML-FAST — a fast code for low-ℓ tomographic maximum likelihood power spectrum estimation"
+  authors: "Y. Kvasiuk, A. Lai, M. Münchmeyer, K. M. Smith"
+  year: 2025
+  venue: "Preprint"
+  area: cosmology
+  arxiv: "2510.05215"
+  code: https://github.com/ykvasiuk/qmlfast
+  project: /projects/qml_fast/
+
+- key: dm-recon
+  title: "Reconstruction of dark matter and baryon density from galaxies: a comparison of linear, halo model and machine learning-based methods"
+  authors: "J. Krywonos, Y. Kvasiuk, M. C. Johnson, M. Münchmeyer"
+  year: 2025
+  venue: "JCAP 03 (2026) 037"
+  area: cosmology
+  arxiv: "2507.12530"
+  doi: "10.1088/1475-7516/2026/03/037"
+  project: /projects/gnn_rec/
+
+- key: ksz-act-desi
+  title: "kSZ velocity reconstruction with ACT and DESI-LS using a tomographic QML power spectrum estimator"
+  authors: "A. C. M. Lai, Y. Kvasiuk, M. Münchmeyer"
+  year: 2025
+  venue: "Preprint"
+  area: cosmology
+  arxiv: "2506.21684"
+  project: /projects/ksz_desi-ls/
+
+- key: tts
+  title: "Test-time scaling techniques in theoretical physics — a comparison of methods on the TPBench dataset"
+  authors: "Z. Gao, T. Li, Y. Kvasiuk, S. C. Tadepalli, M. Rudolph, D. J. H. Chung, F. Sala, M. Münchmeyer"
+  year: 2025
+  venue: "NeurIPS ML4PS 2025"
+  area: ai
+  arxiv: "2506.20729"
+  project: /projects/test_time_scaling/
+
+- key: tpbench
+  title: "Theoretical physics benchmark (TPBench) — a dataset and study of AI reasoning capabilities in theoretical physics"
+  authors: "D. J. H. Chung, Z. Gao, Y. Kvasiuk, T. Li, M. Münchmeyer, M. Rudolph, F. Sala, S. C. Tadepalli"
+  year: 2025
+  venue: "Mach. Learn.: Sci. Technol. 6, 030505"
+  area: ai
+  arxiv: "2502.15815"
+  doi: "10.1088/2632-2153/adfcb0"
+  site: https://tpbench.org/
+  project: /projects/tpbench_project/
+
+- key: gnn
+  title: "Reconstruction of continuous cosmological fields from discrete tracers with graph neural networks"
+  authors: "Y. Kvasiuk, J. Krywonos, M. C. Johnson, M. Münchmeyer"
+  year: 2024
+  venue: "NeurIPS ML4PS 2024"
+  area: cosmology
+  arxiv: "2411.02496"
+  code: https://github.com/ykvasiuk/g2fnet
+  project: /projects/gnn_rec/
+
+- key: two-field
+  title: "Two-field formalism for a neural network-enhanced non-Gaussianity search with halos"
+  authors: "Y. Kvasiuk, M. Münchmeyer, K. Smith"
+  year: 2024
+  venue: "Phys. Rev. D 112, 023540 (2025)"
+  area: cosmology
+  arxiv: "2410.01007"
+  doi: "10.1103/2szy-wypg"
+  project: /projects/two_field/
+
+- key: autodiff-ksz
+  title: "Autodifferentiable likelihood pipeline for the cross-correlation of CMB and large-scale structure due to the kinetic Sunyaev-Zeldovich effect"
+  authors: "Y. Kvasiuk, M. Münchmeyer"
+  year: 2023
+  venue: "Phys. Rev. D 109, 083515 (2024)"
+  area: cosmology
+  arxiv: "2305.08903"
+  doi: "10.1103/PhysRevD.109.083515"
+  project: /projects/autodiff_ksz/
+
+- key: cnn-eos
+  title: "Classification of equation of state in relativistic heavy-ion collisions using deep learning"
+  authors: "Y. Kvasiuk, E. Zabrodin, L. Bravina, I. Didur, M. Frolov"
+  year: 2020
+  venue: "JHEP 07 (2020) 133"
+  area: early
+  arxiv: "2004.14409"
+  doi: "10.1007/JHEP07(2020)133"
+
+- key: flow-nica
+  title: "Directed flow and freeze-out in relativistic heavy-ion collisions at NICA and FAIR energies"
+  authors: "L. Bravina, Y. Kvasiuk, D. Sachenko, S. Y. Sivoklokov, O. Vitiuk, E. E. Zabrodin"
+  year: 2019
+  venue: "PoS CORFU2018, 171"
+  area: early
+  doi: "10.22323/1.347.0171"
+
+- key: flow-universe
+  title: "Directed flow in microscopic models in relativistic A+A collisions"
+  authors: "L. Bravina, Y. Kvasiuk, S. Sivoklokov, O. Vitiuk, E. Zabrodin"
+  year: 2019
+  venue: "Universe 5, 69"
+  area: early
+  doi: "10.3390/universe5030069"
+
+- key: flow-epj
+  title: "Anisotropic (v1 and v2) flow in relativistic heavy-ion collisions at energies between 4 GeV and 200 GeV"
+  authors: "L. V. Bravina, Y. Kvasiuk, S. Y. Sivoklokov, O. Vitiuk, E. E. Zabrodin"
+  year: 2018
+  venue: "EPJ Web Conf. 191, 05004"
+  area: early
+  doi: "10.1051/epjconf/201819105004"

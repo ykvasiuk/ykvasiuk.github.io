@@ -1,8 +1,11 @@
 ---
 title: "KSZ Velocity Reconstruction with ACT and DESI‑LS using a Tomographic QML Power Spectrum Estimator"
 collection: projects
+area: cosmology
+order: 1
+short_title: "kSZ velocity reconstruction with ACT and DESI-LS"
 image: "image2.png"
-excerpt: 'We perform a reconstruction of the radial velocity with the kSZ effect. We use the ACT-DR6 CMB data and the DESI-LS galaxy sample. We find a strong cross correlation detection signifficance (\(\sim 11 \sigma\))'
+excerpt: 'We perform a reconstruction of the radial velocity with the kSZ effect. We use the ACT-DR6 CMB data and the DESI-LS galaxy sample. We find a strong cross correlation detection significance (\(\sim 11 \sigma\))'
 ---
 
 ## Overview
@@ -16,7 +19,7 @@ This project performs the **kinetic Sunyaev‑Zel'dovich (kSZ) velocity** recons
   - DESI‑LS (Dark Energy Spectroscopic Instrument – Large Survey) Data Release 9 galaxy catalog.
 
 - **Estimator / Reconstruction**  
-  - A quadratic estimator (QE) is used to reconstruct the velocities (note: even though it is suboptimal, for the given experimental noises it's enough. However, for the futuristic experiments, one could benefit from the [field likelihood analysis](/projects/project1/))
+  - A quadratic estimator (QE) is used to reconstruct the velocities (note: even though it is suboptimal, for the given experimental noises it's enough. However, for the futuristic experiments, one could benefit from the [field likelihood analysis](/projects/autodiff_ksz/))
   - We develop a new tomographic QML (Quadratic Maximum Likelihood) in spherical coordinates with bins in redshift. This allows to optimally estimate the cross‑powers between velocity field and galaxy density on the lightcone
 
 ## Results

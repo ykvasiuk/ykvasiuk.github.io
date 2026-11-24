@@ -1,6 +1,9 @@
 ---
 title: "Test-time Scaling Techniques in Theoretical Physics"
 collection: projects
+area: ai
+order: 2
+short_title: "Test-time scaling for theoretical physics"
 image: "accuracy_vs_attempts.png"
 excerpt: "We evaluate test-time scaling methods on the TPBench physics dataset and develop a novel symbolic weak-verifier framework that significantly outperforms existing approaches for complex scientific reasoning."
 ---

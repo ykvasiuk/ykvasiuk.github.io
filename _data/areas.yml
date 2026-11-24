@@ -1,0 +1,20 @@
+# Research areas, in the order they appear on the Research page.
+# `group` picks the colour (matches the concept map groups).
+- id: cosmology
+  group: universe
+  label: Measuring the Universe
+  blurb: >-
+    New estimators, likelihoods and codes for the cosmic microwave background and
+    large-scale structure — from theory through to detections on real data.
+- id: ai
+  group: ai
+  label: AI for Science
+  blurb: >-
+    How well can language models do theoretical physics, and how do we make them
+    better? Benchmarks, test-time scaling, and fine-tuning small models.
+- id: autoresearch
+  group: auto
+  label: Autoresearch
+  blurb: >-
+    Closed loops in which LLMs propose, run and refine algorithms — applied to
+    scientific codes and to quantitative finance.

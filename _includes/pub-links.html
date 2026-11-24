@@ -1,0 +1,8 @@
+{%- assign p = include.p -%}
+<span class="links">
+  {%- if include.label -%}<span class="links-label">{{ p.venue }}{% unless p.venue contains p.year %} · {{ p.year }}{% endunless %}</span>{%- endif -%}
+  {%- if p.arxiv -%}<a href="https://arxiv.org/abs/{{ p.arxiv }}">arXiv:{{ p.arxiv }}</a>{%- endif -%}
+  {%- if p.doi -%}<a href="https://doi.org/{{ p.doi }}">Journal</a>{%- endif -%}
+  {%- if p.code -%}<a href="{{ p.code }}">Code</a>{%- endif -%}
+  {%- if p.site -%}<a href="{{ p.site }}">Website</a>{%- endif -%}
+</span>

@@ -1,0 +1,26 @@
+---
+title: Publications
+permalink: /publications/
+eyebrow: Papers
+lead: >-
+  Everything I've written, newest first.
+---
+<p class="profile-line">
+  Also on
+  <a href="https://scholar.google.com/citations?user=8U1fO3oAAAAJ&hl=en">Google Scholar</a> and
+  <a href="https://inspirehep.net/authors/2511706">INSPIRE-HEP</a>.
+</p>
+
+<div class="filters" role="group" aria-label="Filter publications by area">
+  <button type="button" class="chip" data-filter="all" aria-pressed="true">All</button>
+  <button type="button" class="chip" data-filter="cosmology" aria-pressed="false"><span class="dot g-universe"></span>Cosmology</button>
+  <button type="button" class="chip" data-filter="ai" aria-pressed="false"><span class="dot g-ai"></span>AI for Science</button>
+  <button type="button" class="chip" data-filter="autoresearch" aria-pressed="false"><span class="dot g-auto"></span>Autoresearch</button>
+  <button type="button" class="chip" data-filter="early" aria-pressed="false">Earlier work</button>
+</div>
+
+<ol class="pubs" id="pubs">
+  {% for p in site.data.publications %}
+    {% include pub.html p=p %}
+  {% endfor %}
+</ol>

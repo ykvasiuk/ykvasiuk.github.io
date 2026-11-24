@@ -1,0 +1,48 @@
+# Newest first.
+talks:
+  - title: "Robust AI for Primordial Physics from CMB and Large-Scale Structure"
+    venue: "Flatiron Institute, Center for Computational Astrophysics"
+    location: "New York, NY"
+    date: 2025-12-10
+  - title: "Combining Classical and AI Methods for Primordial Physics from Large-Scale Observations"
+    venue: "Canadian Institute for Theoretical Astrophysics (CITA)"
+    location: "Toronto, ON"
+    date: 2025-11-21
+  - title: "Combining Classical and AI Methods for Primordial Physics from Large-Scale Observations"
+    venue: "Perimeter Institute"
+    location: "Waterloo, ON"
+    date: 2025-11-20
+  - title: "AI Reasoning for Theoretical Physics"
+    venue: "AI4EIC at IAIFI"
+    location: "Boston, MA"
+    date: 2025-10-29
+  - title: "Velocity reconstruction via kSZ effect from ACT-DR6 and DESI-LS"
+    venue: "COSMO-25, Carnegie Mellon University"
+    location: "Pittsburgh, PA"
+    date: 2025-10-16
+  - title: "Neural-network enhanced estimator of the primordial non-Gaussianity from dark matter halos"
+    venue: "Perimeter Institute, cosmology group meeting"
+    location: "Waterloo, ON"
+    date: 2024-04-04
+  - title: "An autodifferentiable likelihood analysis pipeline of the CMB & LSS cross-correlation via kinetic Sunyaev-Zeldovich effect"
+    venue: "Leinweber Institute for Theoretical Physics, University of Michigan"
+    location: "Ann Arbor, MI"
+    date: 2023-11-08
+  - title: "An Autodifferentiable Likelihood Analysis of CMB×LSS Cross-Correlation via kSZ Effect"
+    venue: "COSMO-23, Instituto de Física Teórica (IFT UAM-CSIC)"
+    location: "Madrid, Spain"
+    date: 2023-09-15
+  - title: "Reconstruction of Velocity of the Universe with Joint CMB & LSS Likelihood Analysis"
+    venue: "Cosmology from Home"
+    location: "Online"
+    date: 2023-07-11
+
+teaching:
+  - title: "PHYS 361 — Machine Learning in Physics"
+    role: "Teaching assistant"
+    venue: "UW–Madison"
+    term: "Spring 2024"
+  - title: "PHYS 307 — Intermediate Laboratory: Mechanics and Modern Physics"
+    role: "Teaching assistant"
+    venue: "UW–Madison"
+    term: "Spring 2021"

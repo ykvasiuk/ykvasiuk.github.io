@@ -1,0 +1,89 @@
+---
+layout: default
+title: Yurii Kvasiuk
+redirect_from:
+  - /about/
+  - /about.html
+scripts:
+  - /assets/js/graph.js
+---
+<div class="web-band">{% include cosmic-web.svg %}</div>
+
+<section class="wrap hero">
+  <div class="hero-text">
+    <p class="eyebrow">{{ site.author.role }} · Perimeter Institute</p>
+    <h1>I study the Universe with AI.</h1>
+    <p class="lead">
+      I'm a cosmologist at <a href="https://perimeterinstitute.ca/people/yurii-kvasiuk">Perimeter Institute</a>.
+      During my Ph.D. at <span class="nowrap">UW–Madison</span> I developed methods for modelling and measuring the Universe —
+      theory, computation, statistics and machine learning, applied to the cosmic microwave background
+      and large-scale structure.
+    </p>
+    <p>
+      I'm equally excited about AI for science. I co-developed
+      <a href="https://arxiv.org/abs/2502.15815">TPBench</a>, one of the first benchmarks of AI reasoning
+      in theoretical physics, and have worked on
+      <a href="https://arxiv.org/abs/2506.20729">test-time scaling</a> and on
+      <a href="https://arxiv.org/abs/2604.18936">supervised and RL fine-tuning</a> of small language
+      models for narrow physics domains. Lately I've been exploring autoresearch:
+      <a href="https://arxiv.org/abs/2605.23007">LLM-driven loops</a> that improve algorithms on their own,
+      from scientific codes to market-making strategies.
+    </p>
+    <ul class="profiles" aria-label="Profiles">
+      {% for p in site.data.profiles %}<li><a href="{{ p.url }}" rel="me noopener">{{ p.name }}</a></li>{% endfor %}
+    </ul>
+  </div>
+  <img class="portrait" src="{{ '/images/profile.jpg' | relative_url }}" alt="Portrait of Yurii Kvasiuk" width="400" height="400">
+</section>
+
+<section class="wrap section" aria-labelledby="map-title">
+  <div class="section-head">
+    <h2 id="map-title">Map of interests</h2>
+    <p class="hint">Select a concept to see the papers behind it.</p>
+  </div>
+  <div class="graph-card">
+    <div id="graph" class="graph" role="group" aria-label="Interactive map of research concepts"></div>
+    <ul class="legend" aria-hidden="true">
+      {% for g in site.data.graph.groups %}<li><span class="dot g-{{ g.id }}"></span>{{ g.label }}</li>{% endfor %}
+    </ul>
+    <div id="graph-panel" class="graph-panel" aria-live="polite"></div>
+  </div>
+  <noscript>
+    <ul class="concept-list">
+      {% for g in site.data.graph.groups %}
+      <li><strong>{{ g.label }}</strong> — {% assign ns = site.data.graph.nodes | where: "group", g.id %}{% for n in ns %}{{ n.label }}{% unless forloop.last %}, {% endunless %}{% endfor %}</li>
+      {% endfor %}
+    </ul>
+  </noscript>
+  <script type="application/json" id="graph-data">{{ site.data.graph | jsonify }}</script>
+  <script type="application/json" id="pub-data">{{ site.data.publications | jsonify }}</script>
+</section>
+
+<section class="wrap section" aria-labelledby="areas-title">
+  <div class="section-head">
+    <h2 id="areas-title">What I work on</h2>
+    <a class="more" href="{{ '/projects/' | relative_url }}">All research →</a>
+  </div>
+  <div class="areas">
+    {% for a in site.data.areas %}
+    <a class="area" href="{{ '/projects/' | relative_url }}#{{ a.id }}">
+      <span class="dot g-{{ a.group }}"></span>
+      <h3>{{ a.label }}</h3>
+      <p>{{ a.blurb }}</p>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="wrap section" aria-labelledby="recent-title">
+  <div class="section-head">
+    <h2 id="recent-title">Recent papers</h2>
+    <a class="more" href="{{ '/publications/' | relative_url }}">All publications →</a>
+  </div>
+  <ol class="pubs">
+    {% assign recent = site.data.publications | where_exp: "p", "p.area != 'collaboration'" | where_exp: "p", "p.key != 'thesis'" %}
+    {% for p in recent limit: 5 %}
+      {% include pub.html p=p %}
+    {% endfor %}
+  </ol>
+</section>

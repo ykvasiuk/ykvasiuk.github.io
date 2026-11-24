@@ -1,6 +1,9 @@
 ---
 title: "Reconstruction of the non-linear cosmological density fields from galaxies"
 collection: projects
+area: cosmology
+order: 6
+short_title: "Reconstructing dark matter and baryons from galaxies"
 image: "image1.png"
 excerpt: 'We develop a new method of reconstruction of the cosmological fields, such as dark matter and baryon density, from the observed luminous galaxies'
 ---

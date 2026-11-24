@@ -1,0 +1,36 @@
+---
+title: Talks & Teaching
+permalink: /talks/
+eyebrow: Speaking
+redirect_from:
+  - /teaching/
+---
+<section class="area-block">
+  <header><h2>Talks</h2></header>
+  <ol class="rows">
+    {% for t in site.data.talks.talks %}
+    <li>
+      <time datetime="{{ t.date | date: '%Y-%m-%d' }}">{{ t.date | date: "%b %Y" }}</time>
+      <div>
+        <h3>{{ t.title }}</h3>
+        <p>{{ t.venue }} · {{ t.location }}</p>
+      </div>
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+
+<section class="area-block">
+  <header><h2>Teaching</h2></header>
+  <ol class="rows">
+    {% for t in site.data.talks.teaching %}
+    <li>
+      <time>{{ t.term }}</time>
+      <div>
+        <h3>{{ t.title }}</h3>
+        <p>{{ t.role }} · {{ t.venue }}</p>
+      </div>
+    </li>
+    {% endfor %}
+  </ol>
+</section>

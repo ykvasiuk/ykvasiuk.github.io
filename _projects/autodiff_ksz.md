@@ -1,6 +1,9 @@
 ---
 title: "Velocity Reconstruction with Autodifferentiable Forward Modelling and Optimization"
 collection: projects
+area: cosmology
+order: 4
+short_title: "Autodifferentiable kSZ likelihood"
 image: "cmb_logo_ink_centered2.png"
 excerpt: "We present an optimal estimator for the peculiar radial velocity field by jointly maximizing the posterior of the CMB temperature anisotropy given galaxy survey induced by the kinetic SZ effect."
 ---

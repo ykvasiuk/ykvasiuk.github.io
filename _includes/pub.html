@@ -1,0 +1,15 @@
+{%- assign p = include.p -%}
+{%- case p.area -%}
+  {%- when "cosmology" -%}{%- assign g = "universe" -%}
+  {%- when "ai" -%}{%- assign g = "ai" -%}
+  {%- when "autoresearch" -%}{%- assign g = "auto" -%}
+  {%- else -%}{%- assign g = "none" -%}
+{%- endcase -%}
+<li class="pub" data-area="{{ p.area }}"{% if p.arxiv %} data-arxiv="{{ p.arxiv }}"{% endif %}{% if p.doi %} data-doi="{{ p.doi }}"{% endif %}>
+  <span class="pub-year">{{ p.year }}</span>
+  <div class="pub-body">
+    <h3 class="pub-title"><span class="dot g-{{ g }}"></span>{% if p.arxiv %}<a href="https://arxiv.org/abs/{{ p.arxiv }}">{{ p.title }}</a>{% elsif p.doi %}<a href="https://doi.org/{{ p.doi }}">{{ p.title }}</a>{% else %}{{ p.title }}{% endif %}</h3>
+    <p class="pub-authors">{{ p.authors | replace: "Y. Kvasiuk", "<b>Y. Kvasiuk</b>" }}</p>
+    <p class="pub-meta"><span class="venue">{{ p.venue }}</span>{% include pub-links.html p=p %}</p>
+  </div>
+</li>
