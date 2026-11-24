@@ -46,3 +46,10 @@ teaching:
     role: "Teaching assistant"
     venue: "UW–Madison"
     term: "Spring 2021"
+
+organizing:
+  - title: "AI × Physics Seminar"
+    role: "Co-organizer"
+    venue: "Perimeter Institute"
+    term: "Current"
+    url: "https://pi-physics-x-ai.github.io/#organizers-section"

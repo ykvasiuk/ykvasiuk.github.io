@@ -1,5 +1,5 @@
 ---
-title: Talks & Teaching
+title: Talks, Teaching & Organizing
 permalink: /talks/
 eyebrow: Speaking
 redirect_from:
@@ -28,6 +28,21 @@ redirect_from:
       <time>{{ t.term }}</time>
       <div>
         <h3>{{ t.title }}</h3>
+        <p>{{ t.role }} · {{ t.venue }}</p>
+      </div>
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+
+<section class="area-block" id="organizing">
+  <header><h2>Organizing</h2></header>
+  <ol class="rows">
+    {% for t in site.data.talks.organizing %}
+    <li>
+      <time>{{ t.term }}</time>
+      <div>
+        <h3>{% if t.url %}<a href="{{ t.url }}">{{ t.title }}</a>{% else %}{{ t.title }}{% endif %}</h3>
         <p>{{ t.role }} · {{ t.venue }}</p>
       </div>
     </li>
